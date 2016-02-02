@@ -10,7 +10,7 @@ public class Validator implements CreditCardValidator {
     public void verifyInputNumber(String inputNumber) {
         Matcher matcher = PATTERN.matcher(inputNumber);
         if (!matcher.matches()) {
-            throw new InappropriateSymbolsInCardNumberException();
+            throw new InappropriateSymbolsInCardNumberException("[ERROR]: card number contains only digits [0-9]!");
         }
     }
 }
