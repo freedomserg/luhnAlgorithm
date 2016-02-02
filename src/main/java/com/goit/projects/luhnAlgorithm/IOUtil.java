@@ -7,20 +7,10 @@ import java.io.InputStreamReader;
 public class IOUtil {
     private static Validator validator = new Validator();
 
-    public static String inputData() throws IOException {
+    public static String getInputNumber() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        String inputCardNumber = null;
         System.out.print("Please, enter the number of your credit card: ");
-        while(true) {
-            inputCardNumber = reader.readLine();
-            try {
-                validator.verifyInputNumber(inputCardNumber);
-                break;
-            }catch (InappropriateSymbolsInCardNumberException ex) {
-                System.out.println("[ERROR]: card number contains only digits [0-9]. Try again!");
-            }
-        }
+        String inputCardNumber = reader.readLine();
         reader.close();
         return inputCardNumber;
     }
